@@ -1,62 +1,56 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>غلام حسین کی ویب سائٹ</title>
-    <style>
-        body {
-            font-family: 'Noto Nastaliq Urdu', serif;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        input, button {
-            padding: 10px;
-            margin: 5px;
-            border-radius: 8px;
-            border: none;
-        }
-        button {
-            background-color: #004d99;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>غلام حسین PUBG سروس</title>
+<style>
+    body { font-family: 'Noto Nastaliq Urdu', serif; background: #0d1b2a; color: white; text-align: center; padding: 20px; }
+    input, button { padding: 10px; margin: 5px; border-radius: 8px; border: none; }
+    button { background: #1b263b; color: white; cursor: pointer; }
+    .ad-container { background: #fff; color: #000; padding: 10px; margin: 10px; border-radius: 8px; }
+    footer { margin-top: 30px; font-size: 14px; }
+</style>
 </head>
 <body>
 
-    <h1>السلام علیکم</h1>
-    <p>براہ کرم اپنا نام اور ملک درج کریں</p>
+<h1>السلام علیکم</h1>
+<p>براہ کرم اپنا نام اور ملک درج کریں</p>
 
-    <input type="text" id="name" placeholder="نام">
-    <input type="text" id="country" placeholder="ملک">
-    <br>
-    <button onclick="checkInput()">ارسال کریں</button>
+<input type="text" id="name" placeholder="نام">
+<input type="text" id="country" placeholder="ملک">
+<br>
+<button onclick="start()">ارسال کریں</button>
 
-    <p id="error" style="color: yellow;"></p>
+<div class="ad-container">
+    یہاں بعد میں آپ کا ایڈ ہوگا
+</div>
 
-    <script>
-        function checkInput() {
-            let name = document.getElementById('name').value.trim();
-            let country = document.getElementById('country').value.trim();
+<div id="menu" style="display:none;">
+    <h2>آپ کس کا ریٹ معلوم کرنا چاہتے ہیں؟</h2>
+    <a href="rate.html?item=UC"><button>UC</button></a>
+    <a href="rate.html?item=ID"><button>ID</button></a>
+    <a href="rate.html?item=Popularity"><button>Popularity</button></a>
+    <a href="rate.html?item=HomeVotes"><button>Home Votes</button></a>
+</div>
 
-            let namePattern = /^[A-Za-z\u0600-\u06FF\s]+$/;
+<footer>
+    <p>© 2025 غلام حسین — موبائل: 03123301440</p>
+</footer>
 
-            if (!namePattern.test(name) || !namePattern.test(country)) {
-                document.getElementById('error').innerText = "براہ کرم صرف حروف استعمال کریں، نمبر یا خاص علامات نہیں";
-                return;
-            }
-
-            // ڈیٹا دوسرے پیج کو بھیجنا
-            localStorage.setItem("visitorName", name);
-            localStorage.setItem("visitorCountry", country);
-
-            // دوسرے پیج پر لے جانا
-            window.location.href = "welcome.html";
-        }
-    </script>
+<script>
+function start(){
+    let name = document.getElementById("name").value.trim();
+    let country = document.getElementById("country").value.trim();
+    let pattern = /^[A-Za-z\u0600-\u06FF\s]+$/;
+    if(!pattern.test(name) || !pattern.test(country)){
+        alert("براہ کرم صرف حروف استعمال کریں");
+        return;
+    }
+    alert(name + " خوش آمدید!");
+    document.getElementById("menu").style.display = "block";
+}
+</script>
 
 </body>
 </html>
